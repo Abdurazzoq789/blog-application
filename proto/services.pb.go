@@ -122,6 +122,210 @@ func (x *AuthResponse) GetToken() string {
 	return ""
 }
 
+type SignupRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Username string `protobuf:"bytes,1,opt,name=Username,proto3" json:"Username,omitempty"`
+	Email    string `protobuf:"bytes,2,opt,name=Email,proto3" json:"Email,omitempty"`
+	Password string `protobuf:"bytes,3,opt,name=Password,proto3" json:"Password,omitempty"`
+}
+
+func (x *SignupRequest) Reset() {
+	*x = SignupRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_services_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SignupRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SignupRequest) ProtoMessage() {}
+
+func (x *SignupRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_services_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SignupRequest.ProtoReflect.Descriptor instead.
+func (*SignupRequest) Descriptor() ([]byte, []int) {
+	return file_proto_services_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *SignupRequest) GetUsername() string {
+	if x != nil {
+		return x.Username
+	}
+	return ""
+}
+
+func (x *SignupRequest) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+func (x *SignupRequest) GetPassword() string {
+	if x != nil {
+		return x.Password
+	}
+	return ""
+}
+
+type EmailUsedRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Email string `protobuf:"bytes,1,opt,name=Email,proto3" json:"Email,omitempty"`
+}
+
+func (x *EmailUsedRequest) Reset() {
+	*x = EmailUsedRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_services_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *EmailUsedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EmailUsedRequest) ProtoMessage() {}
+
+func (x *EmailUsedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_services_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EmailUsedRequest.ProtoReflect.Descriptor instead.
+func (*EmailUsedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_services_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *EmailUsedRequest) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+type UsedResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Used bool `protobuf:"varint,1,opt,name=Used,proto3" json:"Used,omitempty"`
+}
+
+func (x *UsedResponse) Reset() {
+	*x = UsedResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_services_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UsedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UsedResponse) ProtoMessage() {}
+
+func (x *UsedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_services_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UsedResponse.ProtoReflect.Descriptor instead.
+func (*UsedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_services_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *UsedResponse) GetUsed() bool {
+	if x != nil {
+		return x.Used
+	}
+	return false
+}
+
+type UsernameUsedRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Username string `protobuf:"bytes,1,opt,name=Username,proto3" json:"Username,omitempty"`
+}
+
+func (x *UsernameUsedRequest) Reset() {
+	*x = UsernameUsedRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_services_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UsernameUsedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UsernameUsedRequest) ProtoMessage() {}
+
+func (x *UsernameUsedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_services_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UsernameUsedRequest.ProtoReflect.Descriptor instead.
+func (*UsernameUsedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_services_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *UsernameUsedRequest) GetUsername() string {
+	if x != nil {
+		return x.Username
+	}
+	return ""
+}
+
 var File_proto_services_proto protoreflect.FileDescriptor
 
 var file_proto_services_proto_rawDesc = []byte{
@@ -133,12 +337,37 @@ var file_proto_services_proto_rawDesc = []byte{
 	0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x50, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x22,
 	0x24, 0x0a, 0x0c, 0x41, 0x75, 0x74, 0x68, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
 	0x14, 0x0a, 0x05, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05,
-	0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x32, 0x40, 0x0a, 0x0b, 0x41, 0x75, 0x74, 0x68, 0x53, 0x65, 0x72,
-	0x76, 0x69, 0x63, 0x65, 0x12, 0x31, 0x0a, 0x05, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x12, 0x13, 0x2e,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65,
-	0x73, 0x74, 0x1a, 0x13, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x41, 0x75, 0x74, 0x68, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x0a, 0x5a, 0x08, 0x2e, 0x2f, 0x3b, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x22, 0x5d, 0x0a, 0x0d, 0x53, 0x69, 0x67, 0x6e, 0x75, 0x70, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x55, 0x73, 0x65, 0x72, 0x6e, 0x61,
+	0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x55, 0x73, 0x65, 0x72, 0x6e, 0x61,
+	0x6d, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x45, 0x6d, 0x61, 0x69, 0x6c, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x05, 0x45, 0x6d, 0x61, 0x69, 0x6c, 0x12, 0x1a, 0x0a, 0x08, 0x50, 0x61, 0x73, 0x73,
+	0x77, 0x6f, 0x72, 0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x50, 0x61, 0x73, 0x73,
+	0x77, 0x6f, 0x72, 0x64, 0x22, 0x28, 0x0a, 0x10, 0x45, 0x6d, 0x61, 0x69, 0x6c, 0x55, 0x73, 0x65,
+	0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x14, 0x0a, 0x05, 0x45, 0x6d, 0x61, 0x69,
+	0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x45, 0x6d, 0x61, 0x69, 0x6c, 0x22, 0x22,
+	0x0a, 0x0c, 0x55, 0x73, 0x65, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x12,
+	0x0a, 0x04, 0x55, 0x73, 0x65, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x04, 0x55, 0x73,
+	0x65, 0x64, 0x22, 0x31, 0x0a, 0x13, 0x55, 0x73, 0x65, 0x72, 0x6e, 0x61, 0x6d, 0x65, 0x55, 0x73,
+	0x65, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x55, 0x73, 0x65,
+	0x72, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x55, 0x73, 0x65,
+	0x72, 0x6e, 0x61, 0x6d, 0x65, 0x32, 0xf1, 0x01, 0x0a, 0x0b, 0x41, 0x75, 0x74, 0x68, 0x53, 0x65,
+	0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x31, 0x0a, 0x05, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x12, 0x13,
+	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x1a, 0x13, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x41, 0x75, 0x74, 0x68,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x33, 0x0a, 0x06, 0x53, 0x69, 0x67, 0x6e,
+	0x75, 0x70, 0x12, 0x14, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x53, 0x69, 0x67, 0x6e, 0x75,
+	0x70, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x13, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x2e, 0x41, 0x75, 0x74, 0x68, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x39, 0x0a,
+	0x09, 0x45, 0x6d, 0x61, 0x69, 0x6c, 0x55, 0x73, 0x65, 0x64, 0x12, 0x17, 0x2e, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x2e, 0x45, 0x6d, 0x61, 0x69, 0x6c, 0x55, 0x73, 0x65, 0x64, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x1a, 0x13, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x55, 0x73, 0x65, 0x64,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x3f, 0x0a, 0x0c, 0x55, 0x73, 0x65, 0x72,
+	0x6e, 0x61, 0x6d, 0x65, 0x55, 0x73, 0x65, 0x64, 0x12, 0x1a, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x2e, 0x55, 0x73, 0x65, 0x72, 0x6e, 0x61, 0x6d, 0x65, 0x55, 0x73, 0x65, 0x64, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x13, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x55, 0x73, 0x65,
+	0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x0a, 0x5a, 0x08, 0x2e, 0x2f, 0x3b,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -153,16 +382,26 @@ func file_proto_services_proto_rawDescGZIP() []byte {
 	return file_proto_services_proto_rawDescData
 }
 
-var file_proto_services_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_proto_services_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_proto_services_proto_goTypes = []interface{}{
-	(*LoginRequest)(nil), // 0: proto.LoginRequest
-	(*AuthResponse)(nil), // 1: proto.AuthResponse
+	(*LoginRequest)(nil),        // 0: proto.LoginRequest
+	(*AuthResponse)(nil),        // 1: proto.AuthResponse
+	(*SignupRequest)(nil),       // 2: proto.SignupRequest
+	(*EmailUsedRequest)(nil),    // 3: proto.EmailUsedRequest
+	(*UsedResponse)(nil),        // 4: proto.UsedResponse
+	(*UsernameUsedRequest)(nil), // 5: proto.UsernameUsedRequest
 }
 var file_proto_services_proto_depIdxs = []int32{
 	0, // 0: proto.AuthService.Login:input_type -> proto.LoginRequest
-	1, // 1: proto.AuthService.Login:output_type -> proto.AuthResponse
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
+	2, // 1: proto.AuthService.Signup:input_type -> proto.SignupRequest
+	3, // 2: proto.AuthService.EmailUsed:input_type -> proto.EmailUsedRequest
+	5, // 3: proto.AuthService.UsernameUsed:input_type -> proto.UsernameUsedRequest
+	1, // 4: proto.AuthService.Login:output_type -> proto.AuthResponse
+	1, // 5: proto.AuthService.Signup:output_type -> proto.AuthResponse
+	4, // 6: proto.AuthService.EmailUsed:output_type -> proto.UsedResponse
+	4, // 7: proto.AuthService.UsernameUsed:output_type -> proto.UsedResponse
+	4, // [4:8] is the sub-list for method output_type
+	0, // [0:4] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -198,6 +437,54 @@ func file_proto_services_proto_init() {
 				return nil
 			}
 		}
+		file_proto_services_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SignupRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_services_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*EmailUsedRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_services_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UsedResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_services_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UsernameUsedRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -205,7 +492,7 @@ func file_proto_services_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_proto_services_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

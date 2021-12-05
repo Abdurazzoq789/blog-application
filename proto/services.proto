@@ -13,6 +13,27 @@ message AuthResponse{
   string Token = 1;
 }
 
+message SignupRequest {
+  string Username = 1;
+  string Email = 2;
+  string Password = 3;
+}
+
+message EmailUsedRequest {
+  string Email = 1;
+}
+
+message UsedResponse {
+  bool Used = 1;
+}
+
+message UsernameUsedRequest {
+  string Username = 1;
+}
+
 service AuthService {
   rpc Login(LoginRequest) returns (AuthResponse);
+  rpc Signup(SignupRequest) returns (AuthResponse);
+  rpc EmailUsed(EmailUsedRequest) returns (UsedResponse);
+  rpc UsernameUsed(UsernameUsedRequest) returns (UsedResponse);
 }
