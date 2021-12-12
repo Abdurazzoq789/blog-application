@@ -22,6 +22,7 @@ type AuthServiceClient interface {
 	Signup(ctx context.Context, in *SignupRequest, opts ...grpc.CallOption) (*AuthResponse, error)
 	EmailUsed(ctx context.Context, in *EmailUsedRequest, opts ...grpc.CallOption) (*UsedResponse, error)
 	UsernameUsed(ctx context.Context, in *UsernameUsedRequest, opts ...grpc.CallOption) (*UsedResponse, error)
+	AuthUser(ctx context.Context, in *AuthUserRequest, opts ...grpc.CallOption) (*AuthUserResponse, error)
 }
 
 type authServiceClient struct {
@@ -68,6 +69,15 @@ func (c *authServiceClient) UsernameUsed(ctx context.Context, in *UsernameUsedRe
 	return out, nil
 }
 
+func (c *authServiceClient) AuthUser(ctx context.Context, in *AuthUserRequest, opts ...grpc.CallOption) (*AuthUserResponse, error) {
+	out := new(AuthUserResponse)
+	err := c.cc.Invoke(ctx, "/proto.AuthService/AuthUser", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // AuthServiceServer is the server API for AuthService service.
 // All implementations must embed UnimplementedAuthServiceServer
 // for forward compatibility
@@ -76,6 +86,7 @@ type AuthServiceServer interface {
 	Signup(context.Context, *SignupRequest) (*AuthResponse, error)
 	EmailUsed(context.Context, *EmailUsedRequest) (*UsedResponse, error)
 	UsernameUsed(context.Context, *UsernameUsedRequest) (*UsedResponse, error)
+	AuthUser(context.Context, *AuthUserRequest) (*AuthUserResponse, error)
 	mustEmbedUnimplementedAuthServiceServer()
 }
 
@@ -94,6 +105,9 @@ func (UnimplementedAuthServiceServer) EmailUsed(context.Context, *EmailUsedReque
 }
 func (UnimplementedAuthServiceServer) UsernameUsed(context.Context, *UsernameUsedRequest) (*UsedResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UsernameUsed not implemented")
+}
+func (UnimplementedAuthServiceServer) AuthUser(context.Context, *AuthUserRequest) (*AuthUserResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AuthUser not implemented")
 }
 func (UnimplementedAuthServiceServer) mustEmbedUnimplementedAuthServiceServer() {}
 
@@ -180,6 +194,24 @@ func _AuthService_UsernameUsed_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _AuthService_AuthUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AuthUserRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthServiceServer).AuthUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/proto.AuthService/AuthUser",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthServiceServer).AuthUser(ctx, req.(*AuthUserRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // AuthService_ServiceDesc is the grpc.ServiceDesc for AuthService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -202,6 +234,10 @@ var AuthService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UsernameUsed",
 			Handler:    _AuthService_UsernameUsed_Handler,
+		},
+		{
+			MethodName: "AuthUser",
+			Handler:    _AuthService_AuthUser_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

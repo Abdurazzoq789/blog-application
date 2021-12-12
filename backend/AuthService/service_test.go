@@ -95,3 +95,14 @@ func TestAuthServer_Signup(t *testing.T) {
 	}
 }
 
+func TestAuthServer_AuthUser(t *testing.T) {
+	server := authServer{}
+	res, err := server.AuthUser(context.Background(), &proto.AuthUserRequest{Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoie1wiSURcIjpcIjYxYjRlOGMxZWFjMThiZWI5NGIxZDY2OVwiLFwiVXNlcm5hbWVcIjpcIkNhcmxcIixcIkVtYWlsXCI6XCJ0ZXN0QGdtYWlsLmNvbVwiLFwiUGFzc3dvcmRcIjpcIiQyYSQxMCRVYnd3TWZtRG9BZy9qYXRycWhJRWMuWEphMnVhd2FRc1J1NS9yQWsuNVhDNmRBdkdNUTJWbVwifSJ9.7qXAMf1Bzety1H7SkUq7TUzn9BRmuYJZBtaXAsGGbOI"})
+	if err != nil {
+		t.Error("an error was returned")
+	}
+	if res.GetID() != "61b4e8c1eac18beb94b1d669" || res.GetUsername() != "Carl" || res.GetEmail() != "test@gmail.com" {
+		t.Error("wrong result returned: ", res)
+	}
+}
+

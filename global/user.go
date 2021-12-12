@@ -2,8 +2,8 @@ package global
 
 import (
 	"encoding/json"
-	"go.mongodb.org/mongo-driver/bson/primitive"
 	"github.com/dgrijalva/jwt-go"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 var NilUser User
@@ -22,4 +22,14 @@ func (u User) GetToken() string {
 	})
 	tokenString, _ := token.SignedString(jwtSecret)
 	return tokenString
+}
+
+func UserFromToken(token string) User {
+	claims := jwt.MapClaims{}
+	jwt.ParseWithClaims(token, claims, func(token *jwt.Token) (interface{}, error) {
+		return jwtSecret, nil
+	})
+	var result User
+	json.Unmarshal([]byte(claims["data"].(string)), &result)
+	return result
 }

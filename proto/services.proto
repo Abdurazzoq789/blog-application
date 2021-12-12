@@ -31,9 +31,20 @@ message UsernameUsedRequest {
   string Username = 1;
 }
 
+message AuthUserRequest {
+  string Token = 1;
+}
+
+message AuthUserResponse {
+  string ID = 1;
+  string Username = 2;
+  string Email = 3;
+}
+
 service AuthService {
   rpc Login(LoginRequest) returns (AuthResponse);
   rpc Signup(SignupRequest) returns (AuthResponse);
   rpc EmailUsed(EmailUsedRequest) returns (UsedResponse);
   rpc UsernameUsed(UsernameUsedRequest) returns (UsedResponse);
+  rpc AuthUser(AuthUserRequest) returns (AuthUserResponse);
 }
